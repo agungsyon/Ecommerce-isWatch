@@ -1,0 +1,37 @@
+[
+  {
+    "name": "rolex",
+    "description": "Ketebalan: 6.9mm\n Strap length: 250mm \nBand Width: 20mm \nDial diameter: 40mm \nTahan air: Tahan air. Tapi Anda harus menghindari air panas dan berenang, Anda bisa mencuci tangan. Gunakan saat hujan. \nGesper bahan: stainless steel \nJenis gerakan: kuarsa \nBahan tali: Kulit /Nilon.",
+    "price": 210000,
+    "stock": 20,
+    "photo": "https://telkomschools.sch.id/wp-content/uploads/2020/06/11-2.jpg"
+  },
+  {
+    "name": "Uniform Wares C35",
+    "description": "Ketebalan: 8mm\n Strap length: 250mm \nBand Width: 20mm \nDial diameter: 40mm \nTahan air: Tahan air. Tapi Anda harus menghindari air panas dan berenang, Anda bisa mencuci tangan. Gunakan saat hujan. \nGesper bahan: stainless steel \nJenis gerakan: kuarsa \nBahan tali: Kulit /Nilon.",
+    "price": 250000,
+    "stock": 4,
+    "photo": "https://cdn-images.farfetch-contents.com/12/92/68/25/12926825_14255459_600.jpg"
+  },
+  {
+    "name": "Hamilton Feme 2021",
+    "description": "Ketebalan: 8mm\n Strap length: 250mm \nBand Width: 20mm \nDial diameter: 40mm \nTahan air: Tahan air. Tapi Anda harus menghindari air panas dan berenang, Anda bisa mencuci tangan. Gunakan saat hujan. \nGesper bahan: stainless steel \nJenis gerakan: kuarsa \nBahan tali: Kulit /Nilon.",
+    "price": 290000,
+    "stock": 7,
+    "photo": "https://imageapi.cambiaste.com/api/lotto/immagine/152196/0/800.jpg"
+  },
+  {
+    "name": "Dial Lux BS215",
+    "description": "Ketebalan: 8mm\n Strap length: 250mm \nBand Width: 20mm \nDial diameter: 40mm \nTahan air: Tahan air. Tapi Anda harus menghindari air panas dan berenang, Anda bisa mencuci tangan. Gunakan saat hujan. \nGesper bahan: stainless steel \nJenis gerakan: kuarsa \nBahan tali: Kulit /Nilon.",
+    "price": 300000,
+    "stock": 10,
+    "photo": "https://m.media-amazon.com/images/I/71cWHpxUqgL._SX466_.jpg"
+  },
+  {
+    "name": "Fossil Lux BQ2415",
+    "description": "Ketebalan: 8mm\n Strap length: 250mm \nBand Width: 20mm \nDial diameter: 40mm \nTahan air: Tahan air. Tapi Anda harus menghindari air panas dan berenang, Anda bisa mencuci tangan. Gunakan saat hujan. \nGesper bahan: stainless steel \nJenis gerakan: kuarsa \nBahan tali: Kulit /Nilon.",
+    "price": 280000,
+    "stock": 6,
+    "photo": "https://www.freedomtoexist.com/cdn/shop/products/4202M_Milanese_Rose_Gold_800x.jpg?v=1605464480"
+  }
+]
