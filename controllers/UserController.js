@@ -79,10 +79,10 @@ class UserController {
   }
 
   static postProfile(req, res) {
-    const { id : UserId } = req.params;
+    const { id: UserId } = req.params;
     const { name, gender, dateOfBirth } = req.body;
-    UserProfile.create({ name, gender, dateOfBirth, UserId})
-    .then((_) => {
+    UserProfile.create({ name, gender, dateOfBirth, UserId })
+      .then((_) => {
         res.redirect("/");
       })
       .catch((err) => {
