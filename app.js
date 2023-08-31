@@ -4,9 +4,13 @@ const router = require('./routes');
 const session = require('express-session')
 const port = 3000
 
+const qrcode = require("qrcode")
+
+const path = require("path")
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
 app.use(session({
   secret: 'cuma aku yang tau',

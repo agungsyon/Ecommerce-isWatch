@@ -1,5 +1,6 @@
 const dateFormat = require("../helpers/dateformat");
 const { Product, ShopingOrder } = require("../models");
+const qrcode = require("qrcode")
 
 class ProductController {
   static addProduct(req, res) {
@@ -53,14 +54,42 @@ class ProductController {
   static cartList(req, res) {
     const UserId = req.session.userId;
 
-    ShopingOrder.findAll({ where: UserId, include: Product })
+    ShopingOrder.findAll({
+      where: UserId,
+      include: Product,
+      order: [["orderDate", "ASC"]],
+    })
       .then((carts) => {
         res.render("product/cart-list", { carts, dateFormat });
-      }) 
+      })
       .catch((err) => {
         console.log(err);
         res.send(err);
       });
+  }
+
+  static checkout(req, res) {
+    const UserId = req.session.userId;
+
+    ShopingOrder.destroy({ where: { UserId } })
+    .then((_) => {
+        res.redirect("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send(err);
+      });
+  }
+
+  static checkoutQrCode(req, res) {
+    const {totalAmount} = req.params
+
+    qrcode.toDataURL(totalAmount, (err, src) => {
+        res.render("product/checkout-qrcode", {
+            qr_code: src,
+        })
+    })
+
   }
 
   /**

@@ -17,15 +17,67 @@ module.exports = (sequelize, DataTypes) => {
       UserProfile.belongsTo(models.User)
     }
 
-    get formatDateEdit() {
+    formatDateEdit() {
       return dateFormat(this.dateOfBirth);
     }
   }
   UserProfile.init({
-    name: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    dateOfBirth: DataTypes.DATE,
-    profilePicture: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "name has required",
+        },
+        notNull: {
+          args: true,
+          msg: "name has required",
+        },
+      },
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "gender has required",
+        },
+        notNull: {
+          args: true,
+          msg: "gender has required",
+        },
+      },
+    },
+    dateOfBirth: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "dateOfBirth has required",
+        },
+        notNull: {
+          args: true,
+          msg: "dateOfBirth has required",
+        },
+      },
+    },
+    profilePicture: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "profilePicture has required",
+        },
+        notNull: {
+          args: true,
+          msg: "profilePicture has required",
+        },
+      },
+    },
     UserId: DataTypes.INTEGER
   }, {
     sequelize,

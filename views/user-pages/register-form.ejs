@@ -15,9 +15,14 @@
               <form class="card-body cardbody-color p-lg-5" action="/register" method="post">
                 <div class="mb-3" style="text-align: center;">
                     <h3>Register</h3>
-                </div>
+                </div><br>
+                <% if (error) { %>
+                 <% error.split(",").forEach(element => { %>
+                  <p style="color: red"><%= element  %></p>
+                 <% }) %>
+                <% } %>
                 <div class="mb-3">
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                  <input type="text" class="form-control" id="email" aria-describedby="emailHelp"
                     placeholder="Email" name="email">
                 </div>
                 <div class="mb-3">

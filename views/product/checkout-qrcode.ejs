@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut Qrcode</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" style="text-align: center;"><br><br><br>
+        <h3>Please Scan this UrCode</h3>
+        <figure class="figure">
+            <img src="<%= qr_code %>" class="figure-img img-fluid rounded" alt="Qr Code" width="200" height="200">
+            <figcaption class="figure-caption text-end">Scan this Qr Code ...</figcaption>
+          </figure><br><br>
+          <a class="btn btn-primary" href="/cart" role="button">Back</a>
+    </div>
+</body>
+</html>

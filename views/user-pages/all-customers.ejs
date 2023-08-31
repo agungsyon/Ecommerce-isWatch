@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Customers</title>
+</head>
+<body>
+
+  <!-- table admin -->
+    <h2 style="text-align: center;">Admin</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Email</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach((el, i) => { %>
+            <% if (el.role == "admin") { %>
+              <% if (el.UserProfile) { %>
+              <tr>
+                <td></td>
+                <td><%= el.email %></td>
+                <td><%= el.username %></td>
+                <td><%= el.UserProfile.name %></td>
+              </tr> 
+           <% } %>          
+            <% } %>
+          <% }) %>
+        </tbody>
+      </table><br><br>
+
+      <!-- table customers -->
+      <h2 style="text-align: center;">Customers</h2>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Email</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach((el, i) => { %>
+              <% if (el.role == "customers") { %>
+                <% if (el.UserProfile) { %>
+                <tr>
+                  <td></td>
+                  <td><%= el.email %></td>
+                  <td><%= el.username %></td>
+                  <td><%= el.UserProfile.name %></td>
+                  <td>
+                    <a href="/user/remove/<%= el.id %>" class="btn btn-success" style="font-size: 10px; background-color: rgb(179, 31, 31); border: none;">Remove</a>
+                  </td>
+             </tr>   
+             <% } %>         
+              <% } %>
+            <% }) %>
+          </tbody>
+        </table><br>
+</body>
+</html>

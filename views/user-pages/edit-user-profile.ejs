@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Edit User Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style/login/style.css">
 </head>
@@ -14,10 +14,7 @@
             <div class="card my-5">
               <form class="card-body cardbody-color p-lg-5" action="" method="post">
                 <div class="mb-3" style="text-align: center;">
-                    <h3>Welcome to isWatch.</h3>
-                </div><br>
-                <div class="mb-3" style="text-align: center;">
-                    <h4>please make a biodata first</h4>
+                    <h3>Edit User Profile</h3>
                 </div><br>
                 <% if (error) { %>
                  <% error.split(",").forEach(element => { %>
@@ -30,36 +27,14 @@
                 <div class="mb-3">
                     <label for="">Name :</label>
                   <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
-                    placeholder="Name" name="name">
-                </div><br>
-
-                <!-- gender -->
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="male">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Male
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Female
-                        </label>
-                      </div>
-                </div><br>
-
-                <!-- Date Of Birth -->
-                <div class="mb-3">
-                    <label for="">Date Of Birth :</label><br>
-                    <input type="date" name="dateOfBirth" id="">
+                    placeholder="Name" name="name" value="<%= user.UserProfile.name %>">
                 </div><br>
 
                 <!-- Profile Picture -->
                 <div class="mb-3">
                     <label for="">Profile Picture :</label>
                   <input type="text" class="form-control" aria-describedby="emailHelp"
-                    placeholder="Picture" name="profilePicture">
+                    placeholder="Picture" name="profilePicture" value="<%= user.UserProfile.profilePicture %>">
                 </div><br>
 
                 <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Save</button></div>

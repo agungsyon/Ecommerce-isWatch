@@ -13,4 +13,7 @@ router.get("/product/buy/:id", ProductController.buyProduct)
 
 router.get("/cart", ProductController.cartList)
 
+router.get("/cart/checkout", ProductController.checkout)
+router.get("/cart/checkout/qrcode/:totalAmount", ProductController.checkoutQrCode)
+
 module.exports = router

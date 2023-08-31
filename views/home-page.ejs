@@ -27,24 +27,19 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </form>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
     <a href="/showprofile" class="w3-bar-item w3-button">User Profile</a>
-    <a href="#" class="w3-bar-item w3-button">Dresses</a>
-    <a href="#" class="w3-bar-item w3-button" id="myBtn">Jeansss</a>
+
   </div>
   <% if (user.role == "admin") { %>
     <div>
-      <a href="/updateproducts" class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">Manage Product</a> 
       <a href="/product/add" class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">Add Product</a> 
-      <a href="/cusromer"  class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">All Customers</a>
+      <a href="/customer"  class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">All Customers</a>
     </div>
     <% } %>
     <a href="/logout"  class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">Log Out</a>
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-</header>
+
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -73,9 +68,9 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       
       <div class="w3-col l3 s6">
         <div class="w3-container">
-          <a href="/product/buy/<%= element.id %>">Buy</a>
+          <a href="/product/buy/<%= element.id %>" style="color: green; text-align: center;"><i class="fa w3-margin-right">Buy</i></a>
           <img src="<%= element.photo %>" style="width:100%" width="200" height="200">
-          <p><%= element.name %><br><b><%= element.price %></b></p>
+          <p style="text-align: center;"><%= element.name %><br><b><%= element.price %></b></p>
         </div>
        
       </div>
