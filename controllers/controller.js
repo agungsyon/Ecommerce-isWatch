@@ -3,7 +3,7 @@ const { Product, User, UserProfile } = require("../models");
 
 class Controller {
   static homePage(req, res) {
-    const role = req.session.role;
+    const { search } = req.query;
     const userId = req.session.userId;
     let user = {};
 
@@ -12,7 +12,13 @@ class Controller {
     })
       .then((result) => {
         user = result;
-        return Product.findAll();
+        const options = {
+          where: {}
+        }
+        if (search) {
+          options.where.name = {[Op.iLike]: `%${search}%`,}
+        }
+        return Product.findAll(options);
       })
       .then((products) => {
         res.render("home-page", { user, products });

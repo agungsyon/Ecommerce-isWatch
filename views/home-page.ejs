@@ -26,7 +26,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">User Profile</a>
+    <a href="/showprofile" class="w3-bar-item w3-button">User Profile</a>
     <a href="#" class="w3-bar-item w3-button">Dresses</a>
     <a href="#" class="w3-bar-item w3-button" id="myBtn">Jeansss</a>
   </div>
@@ -59,7 +59,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <header class="w3-container w3-xlarge">
     <p class="w3-left">Hallo <b><%= user.UserProfile.name %></b></p>
     <p class="w3-right">
-      <a href="#"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
+      <a href="/cart"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
     </p>
   </header>
 
@@ -70,8 +70,10 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <!-- Product grid -->
   <div class="w3-row w3-grayscale">
     <% products.forEach(element => { %>
+      
       <div class="w3-col l3 s6">
         <div class="w3-container">
+          <a href="/product/buy/<%= element.id %>">Buy</a>
           <img src="<%= element.photo %>" style="width:100%" width="200" height="200">
           <p><%= element.name %><br><b><%= element.price %></b></p>
         </div>

@@ -26,9 +26,8 @@ class UserController {
     })
       .then((user) => {
         if (user) {
-
-          req.session.userId = user.id
-          req.session.role = user.role
+          req.session.userId = user.id;
+          req.session.role = user.role;
 
           const isValidPassword = bcrypt.compareSync(password, user.password);
 
@@ -55,13 +54,13 @@ class UserController {
 
   static logoutUser(req, res) {
     req.session.destroy((err) => {
-        if (err) {
-            console.log(err);
-            res.send(err)
-        }else {
-            res.redirect("/login")
-        }
-    })
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.redirect("/login");
+      }
+    });
   }
 
   static registerForm(req, res) {
@@ -69,9 +68,9 @@ class UserController {
   }
 
   static postRegister(req, res) {
-    const { username, password, role } = req.body;
+    const { email, username, password, role } = req.body;
 
-    User.create({ username, password, role })
+    User.create({ email, username, password, role })
       .then((_) => {
         res.redirect("/login");
       })
@@ -95,11 +94,26 @@ class UserController {
   }
 
   static postProfile(req, res) {
-    const { id : UserId } = req.params;
-    const { name, gender, dateOfBirth } = req.body;
-    UserProfile.create({ name, gender, dateOfBirth, UserId})
-    .then((_) => {
+    const { id: UserId } = req.params;
+    const { name, gender, dateOfBirth, profilePicture } = req.body;
+    UserProfile.create({ name, gender, dateOfBirth, profilePicture, UserId })
+      .then((_) => {
         res.redirect("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send(err);
+      });
+  }
+
+  static detailProfile(req, res) {
+    const id = req.session.userId;
+
+    User.findByPk(id, {
+      include: { model: UserProfile },
+    })
+      .then((user) => {
+        res.render("user-pages/view-user-profile", { user });
       })
       .catch((err) => {
         console.log(err);

@@ -1,4 +1,7 @@
 'use strict';
+
+const dateFormat = require("../helpers/dateformat");
+
 const {
   Model
 } = require('sequelize');
@@ -12,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       UserProfile.belongsTo(models.User)
+    }
+
+    get formatDateEdit() {
+      return dateFormat(this.dateOfBirth);
     }
   }
   UserProfile.init({
