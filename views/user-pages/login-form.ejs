@@ -18,7 +18,9 @@
                   <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                     width="200px" alt="profile">
                 </div>
-    
+                <% if (error) { %>
+                    <p style="color: red; margin-left: 10px;"><%= error %></p>
+                <% } %>
                 <div class="mb-3">
                   <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
                     placeholder="User Name" name="username">

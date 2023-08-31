@@ -26,21 +26,18 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">Shirts</a>
+    <a href="#" class="w3-bar-item w3-button">User Profile</a>
     <a href="#" class="w3-bar-item w3-button">Dresses</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      Jeans <i class="fa fa-caret-down"></i>
-    </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-      <a href="#" class="w3-bar-item w3-button">Relaxed</a>
-      <a href="#" class="w3-bar-item w3-button">Bootcut</a>
-      <a href="#" class="w3-bar-item w3-button">Straight</a>
-    </div>
+    <a href="#" class="w3-bar-item w3-button" id="myBtn">Jeansss</a>
   </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+  <% if (user.role == "admin") { %>
+    <div>
+      <a href="/updateproducts" class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">Manage Product</a> 
+      <a href="/product/add" class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">Add Product</a> 
+      <a href="/cusromer"  class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">All Customers</a>
+    </div>
+    <% } %>
+    <a href="/logout"  class="w3-bar-item w3-button w3-padding w3-large w3-text-grey">Log Out</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -60,6 +57,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
+    <p class="w3-left">Hallo <b><%= user.UserProfile.name %></b></p>
     <p class="w3-right">
       <a href="#"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
     </p>
