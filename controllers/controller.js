@@ -1,11 +1,15 @@
 const { Op } = require("sequelize");
-const { Product } = require("../models");
+const { Product, User, UserProfile } = require("../models");
 
 class Controller {
   static homePage(req, res) {
-    Product.findAll()
+    Product.findAll({
+      includes: {model: User}
+    })
       .then((products) => {
-        res.render("login", { products });
+        // res.send(products)
+        // console.log(products);
+        res.render("home-page", { products });
       })
       .catch((err) => {
         console.log(err);
