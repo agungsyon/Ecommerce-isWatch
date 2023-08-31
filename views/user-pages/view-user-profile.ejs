@@ -72,7 +72,7 @@
     <div class="container"><br><br>
         <h2 style="text-align: center;">Profile <%= user.UserProfile.name  %></h2><br>
         <div>
-            <a href="#" class="btn btn-info btnSalary" role="button">Edit Profile</a>
+            <a href="/profile/edit/picture" class="btn btn-info btnSalary" role="button">Edit Profile</a>
 
         </div><br>
         <div class="job">
@@ -84,7 +84,7 @@
             <p> <b>role</b> : <%= user.role %></p>
             <div class="instructions">
                 <p><b>Gender</b> : <%= user.UserProfile.gender %></p>
-                <p><b>dateOfBirth"</b> : <%= user.UserProfile.formatDateEdit %></p>
+                <p><b>dateOfBirth"</b> : <%= user.UserProfile.formatDateEdit() %></p>
             </div><br>
         </div>
     </div>

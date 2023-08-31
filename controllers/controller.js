@@ -15,10 +15,8 @@ class Controller {
         const options = {
           where: {}
         }
-        if (search) {
-          options.where.name = {[Op.iLike]: `%${search}%`,}
-        }
-        return Product.findAll(options);
+
+        return Product.scopeSearchProduct(search, options);  // using static method in model
       })
       .then((products) => {
         res.render("home-page", { user, products });

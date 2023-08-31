@@ -13,9 +13,16 @@ router.use(isLoggedin);
 
 router.get("/logout", UserController.logoutUser);
 
+router.get("/customer", UserController.allCustoler);
+
+router.get("/user/remove/:id", UserController.removeCustomer)
+
 router.get("/userprofile/:id", UserController.userProfile);
 router.post("/userprofile/:id", UserController.postProfile);
 
 router.get("/showprofile", UserController.detailProfile)
+
+router.get("/profile/edit/picture", UserController.editProfile)
+router.post("/profile/edit/picture", UserController.postEditProfile)
 
 module.exports = router;

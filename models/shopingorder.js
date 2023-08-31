@@ -17,6 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     get formatDateEdit() {
       return dateFormat(this.createdAt);
     }
+
+    resiCode() {
+      const resi = Math.floor(Math.random() * 10000)
+      const amountStr = this.amount.toString();
+      const lastThreeDigits = amountStr.substr(amountStr.length - 3);
+      const result = this.ProductId + lastThreeDigits + resi + this.UserId
+
+      return result
+    }
   }
   ShopingOrder.init(
     {
@@ -35,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
 
   ShopingOrder.beforeCreate((instance, options) => {
     
-    instance.orderNumber = Math.floor(Math.random() * 10000);
+    instance.orderNumber = instance.resiCode()
     instance.orderDate = new Date()
   });
 
