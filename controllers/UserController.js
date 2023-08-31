@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
 const { User, UserProfile } = require("../models");
 const bcrypt = require("bcryptjs");
+// const session = require('express-session')
 
 class UserController {
   static loginForm(req, res) {
@@ -21,10 +22,14 @@ class UserController {
 
     User.findOne({
       where: { username },
-      includes: { model: { UserProfile } },
+      include: { model: UserProfile },
     })
       .then((user) => {
         if (user) {
+
+          req.session.userId = user.id
+          req.session.role = user.role
+
           const isValidPassword = bcrypt.compareSync(password, user.password);
 
           if (isValidPassword) {
@@ -46,6 +51,17 @@ class UserController {
         console.log(err);
         res.send(err);
       });
+  }
+
+  static logoutUser(req, res) {
+    req.session.destroy((err) => {
+        if (err) {
+            console.log(err);
+            res.send(err)
+        }else {
+            res.redirect("/login")
+        }
+    })
   }
 
   static registerForm(req, res) {

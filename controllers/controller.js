@@ -3,13 +3,19 @@ const { Product, User, UserProfile } = require("../models");
 
 class Controller {
   static homePage(req, res) {
-    Product.findAll({
-      includes: {model: User}
+    const role = req.session.role;
+    const userId = req.session.userId;
+    let user = {};
+
+    User.findByPk(userId, {
+      include: { model: UserProfile },
     })
+      .then((result) => {
+        user = result;
+        return Product.findAll();
+      })
       .then((products) => {
-        // res.send(products)
-        // console.log(products);
-        res.render("home-page", { products });
+        res.render("home-page", { user, products });
       })
       .catch((err) => {
         console.log(err);
