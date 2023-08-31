@@ -9,4 +9,8 @@ router.use(isLoggedin)
 router.get("/product/add", ProductController.addProduct)
 router.post("/product/add", ProductController.postProduct)
 
+router.get("/product/buy/:id", ProductController.buyProduct)
+
+router.get("/cart", ProductController.cartList)
+
 module.exports = router

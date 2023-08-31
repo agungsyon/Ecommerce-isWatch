@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+    <title>Profile Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .job {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .job img {
+            max-width: 100%;
+            height: auto;
+        }
+        .job h2 {
+            margin-top: 0;
+        }
+        .job-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .job-details span {
+            color: #777;
+        }
+        .category {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+        }
+        .instructions {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .job img {
+            max-width: 100%;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .clear-whitespace {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><br><br>
+        <h2 style="text-align: center;">Profile <%= user.UserProfile.name  %></h2><br>
+        <div>
+            <a href="#" class="btn btn-info btnSalary" role="button">Edit Profile</a>
+
+        </div><br>
+        <div class="job">
+            <div class="category">
+                <img src="<%= user.UserProfile.profilePicture %>" width="200" height="200">
+            </div>
+            <br>
+            <p> <b>username</b> : <%= user.username %></p>
+            <p> <b>role</b> : <%= user.role %></p>
+            <div class="instructions">
+                <p><b>Gender</b> : <%= user.UserProfile.gender %></p>
+                <p><b>dateOfBirth"</b> : <%= user.UserProfile.formatDateEdit %></p>
+            </div><br>
+        </div>
+    </div>
+    <style>
+        .anchor {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+        }
+        .btn {
+            background-color: bisque;
+            border: none;
+        }
+        .btnBack:hover {
+            background-color: red;
+            border: none;
+        }
+        .btnSalary:hover {
+            background-color: rgb(226, 204, 34);
+            border: none;
+        }
+        .btnInfo:hover {
+            background-color: rgb(54, 178, 69);
+            border: none;
+        }
+    </style>
+    <div class="text-center anchor">
+        <h3>Option</h3>
+        <a href="/" class="btn btn-info" role="button">Back</a>
+    </div>
+</body>
+</html>

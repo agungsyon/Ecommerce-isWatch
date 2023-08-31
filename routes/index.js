@@ -9,6 +9,7 @@ const { isLoggedin } = require('../middlewares/auth')
 router.use(routeUser)
 router.use(routeProduct)
 router.use(isLoggedin)
+
 router.get('/', Controller.homePage)
 
 module.exports = router
