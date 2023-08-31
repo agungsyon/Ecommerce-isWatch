@@ -11,5 +11,4 @@ router.post("/register", UserController.postRegister)
 router.get("/userprofile/:id", UserController.userProfile)
 router.post("/userprofile/:id", UserController.postProfile)
 
-
 module.exports = router

@@ -24,5 +24,16 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'ShopingOrder',
   });
+  ShopingOrder.addHook('beforeCreate', (order) => {
+    order.orderNumber = generateOrderNumber();
+  });
+
+  function generateOrderNumber() {
+    const timestamp = Date.now().toString();
+    const randomDigits = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    return timestamp + randomDigits;
+  }
+
+
   return ShopingOrder;
 };
