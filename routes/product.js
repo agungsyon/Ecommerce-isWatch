@@ -12,6 +12,7 @@ router.post("/product/add", ProductController.postProduct)
 router.get("/product/buy/:id", ProductController.buyProduct)
 
 router.get("/cart", ProductController.cartList)
+router.get("/cart/cancel/:id", ProductController.CancelCart)
 
 router.get("/cart/checkout", ProductController.checkout)
 router.get("/cart/checkout/qrcode/:totalAmount", ProductController.checkoutQrCode)
