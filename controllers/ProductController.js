@@ -56,11 +56,26 @@ class ProductController {
 
     ShopingOrder.findAll({
       where: UserId,
+      attributes: ['id', "orderNumber", "amount", "quantity", "orderDate", "UserId", "ProductId"],
       include: Product,
       order: [["orderDate", "ASC"]],
     })
       .then((carts) => {
+        console.log(carts);
         res.render("product/cart-list", { carts, dateFormat });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send(err);
+      });
+  }
+
+  static CancelCart(req, res) {
+    const {id} = req.params
+
+    ShopingOrder.destroy({ where: { id } })
+    .then((_) => {
+        res.redirect("/cart");
       })
       .catch((err) => {
         console.log(err);
@@ -91,29 +106,6 @@ class ProductController {
     })
 
   }
-
-  /**
-   *   {
-    "orderNumber": 6894,
-    "amount": 280000,
-    "quantity": 1,
-    "orderDate": null,
-    "UserId": 1,
-    "ProductId": 5,
-    "createdAt": "2023-08-31T10:31:15.103Z",
-    "updatedAt": "2023-08-31T10:31:15.103Z",
-    "Product": {
-      "id": 5,
-      "name": "Fossil Lux BQ2415",
-      "description": "Ketebalan: 8mm\n Strap length: 250mm \nBand Width: 20mm \nDial diameter: 40mm \nTahan air: Tahan air. Tapi Anda harus menghindari air panas dan berenang, Anda bisa mencuci tangan. Gunakan saat hujan. \nGesper bahan: stainless steel \nJenis gerakan: kuarsa \nBahan tali: Kulit /Nilon.",
-      "price": 280000,
-      "stock": 6,
-      "photo": "https://www.freedomtoexist.com/cdn/shop/products/4202M_Milanese_Rose_Gold_800x.jpg?v=1605464480",
-      "createdAt": "2023-08-31T10:26:13.662Z",
-      "updatedAt": "2023-08-31T10:26:13.662Z"
-    }
-  }
-   */
 }
 
 module.exports = ProductController;
