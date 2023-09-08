@@ -1,2 +1,2 @@
 # ecommerce-isWatch
-simple ecommerce with javascripts using ejs express pg and sequelize
+simple ecommerce with javascripts in localhost using ejs express pg and sequelize
